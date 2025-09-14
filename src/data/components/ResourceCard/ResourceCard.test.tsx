@@ -26,6 +26,6 @@ describe("<ResourceCard />", () => {
 
     await user.click(screen.getByText(/open/i));
 
-    expect(onOpen).toHaveBeenCalledWith(resource.id);
+    expect(onOpen).toHaveBeenCalledWith(resource);
   });
 });

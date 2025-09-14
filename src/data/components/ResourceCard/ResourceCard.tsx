@@ -2,9 +2,10 @@ import type { Resource } from "../../../types/resource";
 
 interface ResourceCardProps {
   resource: Resource;
+  onOpen?: (resource: Resource) => void;
 }
 
-export function ResourceCard({ resource }: ResourceCardProps) {
+export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
   const date = new Date(resource.date_uploaded).toLocaleDateString("en-GB", {
     day: "2-digit",
     month: "short",
@@ -33,6 +34,14 @@ export function ResourceCard({ resource }: ResourceCardProps) {
           </span>
         ))}
       </div>
+      {onOpen && (
+        <button
+          onClick={() => onOpen(resource)}
+          className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
+          Open Resource
+        </button>
+      )}
     </div>
   );
 }
