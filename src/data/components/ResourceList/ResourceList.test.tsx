@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import type { Resource } from "../../../types/resource";
 import { expect, it } from "vitest";
+import { ResourceList } from "./ResourceList";
 
 const make = (id: string, category: Resource["category"]) => ({
   id,
@@ -23,7 +24,6 @@ it("renders resources grouped by category", () => {
 
   render(<ResourceList resources={resources} />);
 
-  // Check if categories are rendered
   expect(screen.getByText("Podcasts")).toBeInTheDocument();
   expect(screen.getByText("Articles")).toBeInTheDocument();
   expect(screen.getByText("Recipes")).toBeInTheDocument();
