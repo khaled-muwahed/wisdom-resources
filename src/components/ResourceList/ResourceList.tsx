@@ -1,5 +1,5 @@
-import type { Resource } from "../../../types/resource";
-import { groupByCategory } from "../../../util/groupByCategory";
+import type { Resource } from "../../types/resource";
+import { groupByCategory } from "../../util/groupByCategory";
 import { ResourceCard } from "../ResourceCard/ResourceCard";
 
 interface ResourceListProps {

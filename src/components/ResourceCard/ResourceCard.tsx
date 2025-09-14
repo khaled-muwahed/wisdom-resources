@@ -1,5 +1,5 @@
-import type { Resource } from "../../../types/resource";
-import { formatDate } from "../../../util/formatDate";
+import type { Resource } from "../../types/resource";
+import { formatDate } from "../../util/formatDate";
 
 interface ResourceCardProps {
   resource: Resource;

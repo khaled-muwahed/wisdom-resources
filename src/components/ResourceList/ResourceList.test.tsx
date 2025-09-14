@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import type { Resource } from "../../../types/resource";
+import type { Resource } from "../../types/resource";
 import { expect, it } from "vitest";
 import { ResourceList } from "./ResourceList";
 

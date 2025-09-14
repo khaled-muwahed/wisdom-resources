@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import userEvent from "@testing-library/user-event";
-import { resources } from "../../resources.mock";
+import { resources } from "../../data/resources.mock";
 import { ResourceCard } from "./ResourceCard";
 
 describe("<ResourceCard />", () => {
