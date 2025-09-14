@@ -11,15 +11,20 @@ function App() {
   );
 
   return (
-    <>
-      <ResourceList resources={resources} onOpen={setSelectedResource} />
-      {selectedResource && (
-        <ResourceDetails
-          resource={selectedResource}
-          onClose={() => setSelectedResource(null)}
-        />
-      )}
-    </>
+    <div className="p-8">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-3xl font-bold text-center mb-8">
+          Resource Library
+        </h1>
+        <ResourceList resources={resources} onOpen={setSelectedResource} />
+        {selectedResource && (
+          <ResourceDetails
+            resource={selectedResource}
+            onClose={() => setSelectedResource(null)}
+          />
+        )}
+      </div>
+    </div>
   );
 }
 
