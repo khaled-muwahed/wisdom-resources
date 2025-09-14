@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+import userEvent from "@testing-library/user-event";
 import { resources } from "../../resources.mock";
 import { ResourceCard } from "./ResourceCard";
 
@@ -15,5 +16,16 @@ describe("<ResourceCard />", () => {
     });
     expect(screen.getByText(resource.description)).toBeInTheDocument();
     expect(screen.getByText(/Podcasts/i)).toBeInTheDocument();
+  });
+
+  it("should call onOpen when clicking on the card", async () => {
+    const resource = resources[0];
+    const user = userEvent.setup();
+    const onOpen = vi.fn();
+    render(<ResourceCard resource={resource} onOpen={onOpen} />);
+
+    await user.click(screen.getByText(/open/i));
+
+    expect(onOpen).toHaveBeenCalledWith(resource.id);
   });
 });
