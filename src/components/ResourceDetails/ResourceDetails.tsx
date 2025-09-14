@@ -10,29 +10,31 @@ export function ResourceDetails({ resource, onClose }: ResourceDetailsProps) {
   return (
     <div
       role="dialog"
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4"
     >
-      <div className="p-4 border rounded shadow-md bg-white">
-        <button
-          onClick={onClose}
-          className="mb-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
-        >
-          Close
-        </button>
-        <h2 className="text-2xl font-bold mb-2">{resource.title}</h2>
+      <div className="bg-white rounded p-6 max-w-md w-full">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">{resource.title}</h2>
+          <button
+            onClick={onClose}
+            className="bg-red-600 text-white px-3 py-1 rounded hover:bg-red-700"
+          >
+            Close
+          </button>
+        </div>
+
         <p className="text-gray-700 mb-4">{resource.description}</p>
-        <p className="text-sm text-gray-500">
-          Uploaded on: {formatDate(resource.date_uploaded)}
+
+        <p className="text-gray-500 text-sm mb-2">
+          Category: {resource.category}
         </p>
-        <div className="mt-4">
-          <h3 className="text-lg font-semibold mb-2">Tags:</h3>
-          <ul className="list-disc list-inside">
-            {resource.tags.map((tag) => (
-              <li key={tag} className="text-sm text-gray-600">
-                {tag}
-              </li>
-            ))}
-          </ul>
+        <p className="text-gray-500 text-sm mb-4">
+          Uploaded: {formatDate(resource.date_uploaded)}
+        </p>
+
+        <div>
+          <h3 className="font-semibold mb-2">Tags:</h3>
+          <p className="text-sm text-gray-600">{resource.tags.join(", ")}</p>
         </div>
       </div>
     </div>
