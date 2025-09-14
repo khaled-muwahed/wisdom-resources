@@ -8,7 +8,10 @@ interface ResourceDetailsProps {
 
 export function ResourceDetails({ resource, onClose }: ResourceDetailsProps) {
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div
+      role="dialog"
+      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
       <div className="p-4 border rounded shadow-md bg-white">
         <button
           onClick={onClose}
