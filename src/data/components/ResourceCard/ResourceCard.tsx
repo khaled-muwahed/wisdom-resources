@@ -1,4 +1,5 @@
 import type { Resource } from "../../../types/resource";
+import { formatDate } from "../../../util/formatDate";
 
 interface ResourceCardProps {
   resource: Resource;
@@ -6,11 +7,7 @@ interface ResourceCardProps {
 }
 
 export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
-  const date = new Date(resource.date_uploaded).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
+  const date = formatDate(resource.date_uploaded);
 
   return (
     <div className="p-4 border rounded shadow-md">
