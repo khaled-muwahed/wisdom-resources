@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import type { Resource } from "../../types/resource";
 import { expect, it } from "vitest";
 import { ResourceList } from "./ResourceList";
+import userEvent from "@testing-library/user-event";
+import { resources } from "../../data/resources.mock";
 
 const make = (id: string, category: Resource["category"]) => ({
   id,
@@ -27,4 +29,16 @@ it("renders resources grouped by category", () => {
   expect(screen.getByText("Podcasts")).toBeInTheDocument();
   expect(screen.getByText("Articles")).toBeInTheDocument();
   expect(screen.getByText("Recipes")).toBeInTheDocument();
+});
+
+it("should filter resources by search term", async () => {
+  const user = userEvent.setup();
+  render(<ResourceList resources={resources} onOpen={() => {}} />);
+
+  const searchInput = screen.getByPlaceholderText(/search/i);
+
+  await user.type(searchInput, "mindful");
+
+  expect(screen.getByText(/mindful moments/i)).toBeInTheDocument();
+  expect(screen.queryByText(/healthy eating/i)).not.toBeInTheDocument();
 });
