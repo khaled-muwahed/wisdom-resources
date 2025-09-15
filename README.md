@@ -3,6 +3,7 @@
 This project is my submission for the Health Assured frontend developer task.  
 It demonstrates use of **React, TypeScript, TDD, and modern best practices**.
 
+
 ## 🚀 Features
 
 - Display resources grouped by category
@@ -13,6 +14,7 @@ It demonstrates use of **React, TypeScript, TDD, and modern best practices**.
 
 - Fully tested with TDD (unit + integration)
 
+
 ## 🧪 Tests
 
 Run tests:
@@ -20,6 +22,7 @@ Run tests:
 ```bash
 npm test
 ```
+
 
 ## ⚙️ Getting Started
 
@@ -40,6 +43,7 @@ Build for production:
 ```bash
 npm run build
 ```
+
 
 ## 📝 Notes
 
