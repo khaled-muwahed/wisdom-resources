@@ -23,6 +23,12 @@ export function ResourceDetails({ resource, onClose }: ResourceDetailsProps) {
           </button>
         </div>
 
+        <img
+          className="w-full h-48 object-cover rounded mb-4"
+          src={resource.thumbnail}
+          alt={resource.title}
+        />
+
         <p className="text-gray-700 mb-4">{resource.description}</p>
 
         <p className="text-gray-500 text-sm mb-2">
@@ -30,6 +36,9 @@ export function ResourceDetails({ resource, onClose }: ResourceDetailsProps) {
         </p>
         <p className="text-gray-500 text-sm mb-4">
           Uploaded: {formatDate(resource.date_uploaded)}
+        </p>
+        <p className="text-gray-500 text-sm mb-4">
+          Read/Watch time: {resource.duration} minutes
         </p>
 
         <div>
