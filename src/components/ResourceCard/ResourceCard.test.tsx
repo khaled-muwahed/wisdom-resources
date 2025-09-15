@@ -5,17 +5,20 @@ import { resources } from "../../data/resources.mock";
 import { ResourceCard } from "./ResourceCard";
 
 describe("<ResourceCard />", () => {
-  it("should render title, description,tags, and category", () => {
+  it("should render title, description, tags, and category", () => {
     const resource = resources[0];
     render(<ResourceCard resource={resource} />);
 
     expect(screen.getByText(resource.title)).toBeInTheDocument();
-
-    resource.tags.forEach((tag) => {
-      expect(screen.getByText(tag)).toBeInTheDocument();
-    });
     expect(screen.getByText(resource.description)).toBeInTheDocument();
-    expect(screen.getByText(/Podcasts/i)).toBeInTheDocument();
+    expect(screen.getByText(/Category:.*Podcasts/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/Tags:/)).toBeInTheDocument();
+
+    const tagsSection = screen.getByText(/Tags:/).parentElement;
+    resource.tags.forEach((tag) => {
+      expect(tagsSection).toHaveTextContent(tag);
+    });
   });
 
   it("should call onOpen when clicking on the card", async () => {
