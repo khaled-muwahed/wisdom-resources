@@ -6,8 +6,11 @@ It demonstrates use of **React, TypeScript, TDD, and modern best practices**.
 ## 🚀 Features
 
 - Display resources grouped by category
+
 - Resource details in a modal (click a card to open)
+
 - Filter by title or tags
+
 - Fully tested with TDD (unit + integration)
 
 ## 🧪 Tests
@@ -42,5 +45,9 @@ npm run build
 
 If I had more time, I would:
 - Implement sorting by category/date
+
 - Enhance styles and visual polish (animations, spacing, consistency)
+
+- Work with a more realistic GitHub workflow (feature branches + pull requests + code reviews) 
+
 - Add end-to-end tests with Cypress or Playwright
