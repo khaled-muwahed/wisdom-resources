@@ -1,5 +1,4 @@
 import type { Resource } from "../../types/resource";
-import { formatDate } from "../../util/formatDate";
 
 interface ResourceCardProps {
   resource: Resource;
@@ -7,8 +6,6 @@ interface ResourceCardProps {
 }
 
 export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
-  const date = formatDate(resource.date_uploaded);
-
   return (
     <div className="border rounded p-4 bg-white shadow-sm max-w-md mx-auto">
       <img
@@ -17,11 +14,6 @@ export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
         alt={resource.title}
       />
       <h3 className="text-xl font-semibold mb-2">{resource.title}</h3>
-      <p className="text-gray-600 mb-2">{resource.description}</p>
-      <p className="text-gray-500 text-sm mb-2">
-        Category: {resource.category}
-      </p>
-      <p className="text-gray-500 text-sm mb-4">Date: {date}</p>
 
       <div className="mb-4">
         <span className="text-sm font-medium">Tags: </span>
@@ -32,6 +24,10 @@ export function ResourceCard({ resource, onOpen }: ResourceCardProps) {
           </span>
         ))}
       </div>
+
+      <p className="text-gray-500 text-sm mb-4">
+        Read/Watch time: {resource.duration} minutes
+      </p>
 
       {onOpen && (
         <button

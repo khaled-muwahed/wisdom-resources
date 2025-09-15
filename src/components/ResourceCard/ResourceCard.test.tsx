@@ -10,8 +10,6 @@ describe("<ResourceCard />", () => {
     render(<ResourceCard resource={resource} />);
 
     expect(screen.getByText(resource.title)).toBeInTheDocument();
-    expect(screen.getByText(resource.description)).toBeInTheDocument();
-    expect(screen.getByText(/Category:.*Podcasts/i)).toBeInTheDocument();
 
     expect(screen.getByText(/Tags:/)).toBeInTheDocument();
 
